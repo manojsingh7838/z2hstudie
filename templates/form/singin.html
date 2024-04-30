@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration</title>
+    <link rel="stylesheet" href="/static/css/form.css">
+    <style>
+        .error {
+            color: red;
+        }
+
+        .success {
+            color: green;
+        }
+    </style>
+</head>
+<body>
+    <form action="#" method="post">
+        {% csrf_token %}
+        <h1>Create Account</h1>
+        {% if error %}
+            <p class="error">{{ error }}</p>
+        {% endif %}
+        {% if success %}
+            <p class="success">{{ success }}</p>
+        {% endif %}
+        <div class="social-container">
+            <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
+            <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
+        </div>
+        <span>or use your email for registration</span>
+        <input type="text" placeholder="Name" name="name"/>
+        <input type="email" placeholder="Email" name="email"/>
+        <input type="password" placeholder="Password" name="pass" />
+        <input type="password" placeholder="Confirm Password" name="pass2"/>
+        <input type="submit"/>
+        <a href='{% url "login" %}'>Login</a>
+    </form>
+</body>
+</html>

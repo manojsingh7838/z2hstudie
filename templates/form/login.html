@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="/static/css/form.css">
+    <style>
+        .container {
+            width: 300px; /* Decreasing the width of the container */
+            margin: 0 auto; /* Centering the container */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <form action="#" method="post">
+            {% csrf_token %}
+            <h1>Login</h1>
+            
+            <span>or use your account</span>
+            <!-- Displaying error message -->
+            {% if messages %}
+                <div style="color: red;">
+                    {% for message in messages %}
+                        {{ message }}
+                    {% endfor %}
+                </div>
+            {% endif %}
+            
+            <input type="username" placeholder="Username" name="name" />
+            <input type="password" placeholder="Password" name="pass" />
+            <a href="#">Forgot your password?</a>
+            <input type="submit" value="Login" />
+            <a href="{% url 'singin' %}" style="color:blue;">Create account</a>
+        </form>
+    </div>
+</body>
+</html>
